@@ -1,0 +1,32 @@
+[user]
+tenant = TDH
+username = admin
+password = 123
+federation_token = lk2GgasfnhlAnoV9hNF1-tdh
+access_token = Qj5cXRAYEywVKvNYsgBo-TDH
+
+[manager]
+host = 172.26.2.6
+username = admin
+password = admin
+cluster_root_password = 123456
+
+[navigator]
+protocol = https
+host = 172.26.2.6
+port = 28183
+
+[connector]
+protocol = https
+host = 172.26.2.6
+port = 28184
+
+[tdt]
+protocol = http
+host = 172.26.2.6
+port = 28140
+
+[workflow]
+protocol = http
+host = 172.26.2.6
+port = 9101

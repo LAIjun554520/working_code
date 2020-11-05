@@ -1,0 +1,56 @@
+{
+	"flow": {
+		"id": "",
+		"name": "look_create",
+		"description": "flow-created-from-api",
+		"flowType": "INTERNAL",
+		"cronType": "CRON_EXPRESSION",
+		"configuration": {
+			"cronPattern": "0 0 0 ? * * *",
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnable": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionTimeoutAlarmEnable": false,
+			"executionTimeoutAlarm": 7200,
+			"dependLastPolicy": "NO"
+		},
+		"schedulePriority": "LOW_PRIORITY",
+		"deployState": "DEV",
+		"executorGroupId": -1,
+		"parameters": [],
+		"operator": null,
+		"createDateTime": 1603451794916
+	},
+	"preDependencies": [],
+	"tasks": [{
+		"name": "taskA",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"executionFailureRetryEnabled": false,
+			"executionFailureRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"position": {
+			"x": 144,
+			"y": 137
+		},
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"scriptCommands": "echo a"
+		},
+		"parameters": [],
+		"taskType": "SCRIPT",
+		"id": -1,
+		"parentFlowId": "",
+		"selected": false
+	}]
+}

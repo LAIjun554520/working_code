@@ -1,0 +1,36 @@
+connection:
+  source_db:
+    type: MYSQL
+    name: mysql_sample
+    driver_version: mysql-5.7
+    connection: "jdbc:mysql://172.26.5.42:3306"
+    username: root
+    password: password
+  target_db:
+    name: inceptor_sample
+    type: INCEPTOR
+    driver_version: inceptor-0.12.0
+    connection: "jdbc:hive2://172.26.2.6:10000/default"
+  target_hdfs:
+    name: hdfs_sample
+    type: HDFS
+    connection: "hdfs://node530:8020"
+    user_principal: admin
+    user_keytab: /home/transwarp/auto_test/performance_test/tdt_performance_test/test_cases/dataload/sample_conf/admin.keytab
+    hdfs_site: /home/transwarp/auto_test/performance_test/tdt_performance_test/test_cases/dataload/sample_conf/hdfs-site.xml
+    core_site: /home/transwarp/auto_test/performance_test/tdt_performance_test/test_cases/dataload/sample_conf/core-site.xml
+
+solution_name: sample_studio
+solution_num: 2   # 依据任务数量，平均分配数据表
+dir_name: sample  # 任务所在文件夹
+target_database: default  # 目标库名
+
+solution_cron: "0 * * ? * *"
+
+data:
+  catalog_name: tdt_auto_test_dc
+  schema_name: null
+  table_name:
+    - solution_mysql_auto_one
+    - solution_mysql_auto_two
+    - solution_mysql_auto_three
