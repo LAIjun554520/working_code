@@ -64,10 +64,13 @@ if __name__ == '__main__':
     print("******studio 性能测试，所需任务准备及操作，不包含数据校验******")
     parser = argparse.ArgumentParser()
     parser.add_argument("-c", help="待执行的用例名称（用例文件名：用例名称.yml）", type=str)
-    parser.add_argument("-t", help="create: 只创建; online: 创建并发布或者只发布e; offline: 只下线", type=str)
-    parser.add_argument("-p", help="任务uuid文件路径", type=str, default=None)
+    parser.add_argument("-t", help="create: 只创建; online: 创建并发布或者只发布; offline: 只下线", type=str)
+    parser.add_argument("-p", help="任务uuid文件路径,在不需要创建任务的情况下，发布任务需要提供任务uuid文件。"
+                                   "如果选择的操作方式为online且提供了uuid文件路径，则只进行发布操作；如果选择的操作方式为online但没有"
+                                   "提供uuid文件路径，会先创建任务再发布。", type=str, default=None)
     parser.add_argument("-a", help="是否重新获取federation token、access token，y or n，如果不需要重新获取，将从配置文件中"
-                                   "获取token信息", type=str)
+                                   "获取token信息。自动获取token需要关闭federation登录验证码，"
+                                   "会修改federation的配置并重启guardian。", type=str)
     parser.add_argument("-k", help="任务类型，dataload或者workflow", type=str)
 
     args = parser.parse_args()
