@@ -6,6 +6,7 @@ from version: studio2.1.0
 
 1. workflow性能测试
 2. tdt性能测试
+3. catalog性能测试
 
 使用方式：
 
