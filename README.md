@@ -8,6 +8,7 @@ from version: studio2.1.0
 2. tdt性能测试
 3. catalog性能测试
 
+
 使用方式：
 
 1. python studio_performance.py -h 获取命令参数
