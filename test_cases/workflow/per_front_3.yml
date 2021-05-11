@@ -1,0 +1,24 @@
+# 需要创建的任务流的数量及分布（均分）
+taskflow_num: 1
+dir_name: "per_front_3"
+dir_num: 1
+
+# 需要创建的任务流的基本信息及数量，暂无支持任务流之间的依赖关系，暂不支持任务之间定义依赖关系；目前仅支持脚本任务
+taskflow_message:
+  - num: 1
+    name_pattern: "per_front_3"
+    cron_conf:
+      cron_type: "CRON_EXPRESSION"
+      cron_Pattern: "0 0 17 ? * * *"
+      cron_Hour: 0
+      cron_Minute: 0
+    dependLastPolicy: "NO"
+    schedulePriority: "LOW_PRIORITY"
+    executorGroupId: -1
+    pattern_file: " "
+    task_message:
+      - num: 200
+        type: "SCRIPT"
+        name_pattern: shell_task
+        execSpec:
+          scriptCommands: "echo a\nsleep 60\nhostname"

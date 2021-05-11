@@ -38,7 +38,8 @@ class GenerateTaskflow(object):
             print(item.get("cron_conf"))
             taskflow_message = {"num": item.get("num"), "name": item.get("name_pattern"), "cron_conf": item.get("cron_conf"),
                                 "schedule_priority": item.get("schedulePriority"), "executor_group_id": item.get("executorGroupId"),
-                                "dependLastPolicy": item.get("dependLastPolicy"), "task_list": item.get("task_message")}
+                                "dependLastPolicy": item.get("dependLastPolicy"), "task_list": item.get("task_message"),
+                                "custom_pattern": item.get("pattern_file")}
             taskflow_list.append(taskflow_message)
         if taskflow_total != taskflow_total_tmp:
             print("任务流总数与实际每种任务流数量之和不匹配！")
@@ -57,7 +58,7 @@ class GenerateTaskflow(object):
             num = item["num"]
             taskflow_in_one_dir = num // dir_num  # 一个文件夹内的任务流数量
             taskflow_remain = num % dir_num  # 任务流数量/文件夹数量，无法整除时，计算所得余数，补充建立到最后一个文件夹中
-            pattern_path = item["path"]
+            pattern_path = item["path"]    # 得到的任务流临时pattern的地址（未替换任务流uuid的pattern的地址）
             base_name = item['name']
             original_pattern = open(pattern_path, 'r', encoding='utf-8').read()
             for i in range(dir_num):
@@ -69,6 +70,38 @@ class GenerateTaskflow(object):
                 taskflow_uuid_list = taskflow_uuid_list + taskflow_uuid_list_tmp
 
         with open("taskflow_uuid", 'w') as uw:
+            uw.write(",".join(taskflow_uuid_list))
+
+        return taskflow_uuid_list
+
+    def generate_flow_dep_1_1(self):
+        """
+        生成任务流，为相同设计的任务流，配置1-1依赖关系
+        :return:
+        """
+        (dir_name, dir_num, taskflow_list) = self._resolve_case()
+        common_taskflow = self.taskflow_resolve.get_common_pattern(taskflow_list)
+
+        dir_list = self.generate_dir(dir_num, dir_name)
+
+        taskflow_uuid_list = []
+        for item in common_taskflow:
+            num = item["num"]
+            taskflow_in_one_dir = num // dir_num  # 一个文件夹内的任务流数量
+            taskflow_remain = num % dir_num  # 任务流数量/文件夹数量，无法整除时，计算所得余数，补充建立到最后一个文件夹中
+            pattern_path = item["path"]    # 得到的任务流临时pattern的地址（未替换任务流uuid的pattern的地址）
+            base_name = item['name']
+            original_pattern = open(pattern_path, 'r', encoding='utf-8').read()
+            for i in range(dir_num):
+                dir_uuid = dir_list[i]
+                taskflow_tmp_num = taskflow_in_one_dir
+                if i == 0:
+                    taskflow_tmp_num += taskflow_remain
+                taskflow_uuid_list_tmp = self.generate_taskflow_flow_dep_1_1(original_pattern, base_name,
+                                                                             taskflow_tmp_num, dir_uuid)
+                taskflow_uuid_list = taskflow_uuid_list + taskflow_uuid_list_tmp
+
+        with open("taskflow_uuid", 'a') as uw:
             uw.write(",".join(taskflow_uuid_list))
 
         return taskflow_uuid_list
@@ -96,10 +129,36 @@ class GenerateTaskflow(object):
             taskflow_name = original_name + str(i)
             file_pattern = self.file_resolve.get_pattern(taskflow_name, dir_uuid, "file", "WORKFLOW")
             file_uuid = self.navigator.create_file(file_pattern)
-            target_taskflow = self.taskflow_resolve.replace_message(original_pattern, taskflow_name, file_uuid)
+            target_taskflow = self.taskflow_resolve.replace_message(original_pattern, taskflow_name, file_uuid, None)
             update_result = self.workflow.update_taskflow(target_taskflow)
             if update_result == 0:
                 taskflow_uuid_list.append(file_uuid)
+            else:
+                exit(-1)
+        return taskflow_uuid_list
+
+    def generate_taskflow_flow_dep_1_1(self, original_pattern, original_name, taskflow_num, dir_uuid):
+        """
+        在一个文件夹下创建一定数量的任务流，一个文件夹下的任务流1-1依赖
+        :param original_pattern: 任务流模板信息
+        :param original_name: 任务流名称
+        :param taskflow_num: 任务流数量
+        :param dir_uuid: 文件夹uuid
+        :return: 创建的任务流的uuid
+        """
+        taskflow_uuid_list = []
+        preDependencies = []
+        for i in range(taskflow_num):
+            taskflow_name = original_name + str(i)
+            file_pattern = self.file_resolve.get_pattern(taskflow_name, dir_uuid, "file", "WORKFLOW")
+            file_uuid = self.navigator.create_file(file_pattern)
+            target_taskflow = self.taskflow_resolve.replace_message(original_pattern, taskflow_name, file_uuid,
+                                                                    preDependencies)
+            print(target_taskflow)
+            update_result = self.workflow.update_taskflow(target_taskflow)
+            if update_result == 0:
+                taskflow_uuid_list.append(file_uuid)
+                preDependencies = [{"id": file_uuid, "name": taskflow_name}]
             else:
                 exit(-1)
         return taskflow_uuid_list

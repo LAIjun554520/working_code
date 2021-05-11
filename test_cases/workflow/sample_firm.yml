@@ -1,0 +1,19 @@
+# 需要创建的任务流的数量及分布（均分）
+taskflow_num: 500
+dir_name: "sample_firm_studio"
+dir_num: 5
+
+# 需要创建的任务流的基本信息及数量，给出使用的基础pattern的文件名称（基础pattern目前默认存放于taskflow_pattern/firm_pattern）
+taskflow_message:
+  - num: 500
+    name_pattern: "per_exec_2"
+    cron_conf:
+      cron_type: "CRON_EXPRESSION"
+      cron_Pattern: "0,5,19,33,47 0/6 1,3,5,23 * * ?"
+      cron_Hour: 0
+      cron_Minute: 0
+    dependLastPolicy: "NO"
+    schedulePriority: "LOW_PRIORITY"
+    executorGroupId: -1
+    pattern_file: "per_exec_2.json"
+    task_message: " "

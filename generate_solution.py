@@ -85,14 +85,18 @@ class GenerateSolution(object):
     def generate_solution(self, dir_uuid, solution_name, solution_cron, source_connection_uuid, target_connection_uuid,
                           hdfs_connection_uuid, task_list, target_database):
         file_pattern = self.file_resolve.get_pattern(solution_name, dir_uuid, "file", "DATALOAD")
+        print(file_pattern)
         file_uuid = self.navigator.create_file(file_pattern)
         solution_id = self.tdt.get_solution_id(file_uuid)
         table_details = self.tdt.get_table_schema(source_connection_uuid, json.dumps(task_list))
+        source_catalogName = task_list[0].get("catalogName")
+        source_schemaName = task_list[0].get("schemaName")
         new_solution_pattern = self.solution_resolve.get_jdbc_import_pattern(solution_id, file_uuid, solution_cron,
                                                                              source_connection_uuid,
                                                                              target_connection_uuid,
                                                                              hdfs_connection_uuid, table_details,
-                                                                             target_database)
+                                                                             target_database, source_catalogName,
+                                                                             source_schemaName)
         add_result = self.tdt.update_solution(new_solution_pattern)
         if add_result == 0:
             return file_uuid

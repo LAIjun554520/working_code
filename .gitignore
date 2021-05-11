@@ -202,3 +202,5 @@ solution_uuid
 taskflow_uuid
 # 将删除 .gitignore
 将删除 .idea/workspace.xml
+
+taskflow_uuid*

@@ -3,7 +3,7 @@ taskflow_num: 9
 dir_name: "sample_studio"
 dir_num: 5
 
-# 需要创建的任务流的基本信息及数量，暂无支持任务流之间的依赖关系，暂不支持任务之间定义依赖关系；目前仅支持脚本任务
+# 需要创建的任务流的基本信息及数量，暂无支持任务流之间的依赖关系，暂不支持任务之间定义依赖关系；目前仅支持脚本任务。任务流name_pattern需要不同
 taskflow_message:
   - num: 4
     name_pattern: "sample"
@@ -15,6 +15,7 @@ taskflow_message:
     dependLastPolicy: "NO"
     schedulePriority: "LOW_PRIORITY"
     executorGroupId: -1
+    pattern_file: " "
     task_message:
       - num: 1
         type: "SCRIPT"
@@ -36,6 +37,7 @@ taskflow_message:
       dependLastPolicy: "NO"
     schedulePriority: "HIGH_PRIORITY"
     executorGroupId: -1
+    pattern_file: " "
     task_message:
       - num: 1
         type: "SCRIPT"

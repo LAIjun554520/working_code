@@ -1,0 +1,96 @@
+{
+	"flow": {
+		"id": "cd18792dec5d4ca4b462a69def111ccf",
+		"name": "ab",
+		"description": "flow-created-from-dir",
+		"flowType": "INTERNAL",
+		"cronType": "PASSIVE_LAUNCH",
+		"configuration": {
+			"cronPattern": "0 0 0 ? * * *",
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnable": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionTimeoutAlarmEnable": false,
+			"executionTimeoutAlarm": 7200,
+			"dependLastPolicy": "NO"
+		},
+		"schedulePriority": "LOW_PRIORITY",
+		"deployState": "DEV",
+		"executorGroupId": -1,
+		"parameters": [],
+		"operator": null,
+		"createDateTime": 1618734847536
+	},
+	"preDependencies": [{
+		"id": "a93319603ef94ef588ae4a0d88ad2215",
+		"name": "per_front_19_100",
+		"path": "/per_front_19_100"
+	}, {
+		"id": "0be04f00f5014d68b7fa9e5e8c06f773",
+		"name": "per_front_19_101",
+		"path": "/per_front_19_100"
+	}, {
+		"id": "164964702cb149a3ab62ce8bbb4aa34a",
+		"name": "per_front_19_102",
+		"path": "/per_front_19_100"
+	}, {
+		"id": "04af90208a7848be8898e80736b16170",
+		"name": "per_front_19_103",
+		"path": "/per_front_19_100"
+	}, {
+		"id": "976bd0da50b144698e2377d0dc6bb019",
+		"name": "per_front_19_104",
+		"path": "/per_front_19_100"
+	}, {
+		"id": "e9149689cc804785881fd8903a13092b",
+		"name": "per_front_19_105",
+		"path": "/per_front_19_100"
+	}, {
+		"id": "ec9856b43b0d4d97b183dcc8e13abda2",
+		"name": "per_front_19_106",
+		"path": "/per_front_19_100"
+	}, {
+		"id": "f16a45165f544535a3181710036e8c21",
+		"name": "per_front_19_107",
+		"path": "/per_front_19_100"
+	}, {
+		"id": "13152b409e6b4e87b174368305f9892b",
+		"name": "per_front_19_108",
+		"path": "/per_front_19_100"
+	}, {
+		"id": "934c2781e36a4274bcec35e8e9b3d12a",
+		"name": "per_front_19_109",
+		"path": "/per_front_19_100"
+	}],
+	"tasks": [{
+		"name": "taskA",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"executionRetryEnabled": false,
+			"executionRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"position": {
+			"x": 89.02883911132812,
+			"y": 114.03529357910156
+		},
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"scriptCommands": "echo a"
+		},
+		"parameters": [],
+		"taskType": "SCRIPT",
+		"id": -1,
+		"parentFlowId": "cd18792dec5d4ca4b462a69def111ccf",
+		"selected": false
+	}]
+}

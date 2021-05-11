@@ -1,0 +1,187 @@
+{
+	"flow": {
+		"id": "04bf45adfd0f4c6dbb81da0ebfc3bb80",
+		"name": "scheduler_ha_44",
+		"description": "flow-created-from-dir",
+		"flowType": "INTERNAL",
+		"cronType": "CRON_EXPRESSION",
+		"configuration": {
+			"cronPattern": "0 0 0 ? * * *",
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnable": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionTimeoutAlarmEnable": false,
+			"executionTimeoutAlarm": 7200,
+			"dependLastPolicy": "NO"
+		},
+		"schedulePriority": "LOW_PRIORITY",
+		"deployState": "DEV",
+		"executorGroupId": -1,
+		"parameters": [],
+		"operator": null,
+		"createDateTime": 1619781046533
+	},
+	"preDependencies": [],
+	"tasks": [{
+		"name": "taskA",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"executionRetryEnabled": false,
+			"executionRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {},
+		"downstreamRelations": {
+			"-3": "OR"
+		},
+		"position": {
+			"x": 192.02883911132812,
+			"y": 92.03529357910156
+		},
+		"executorGroupId": -1,
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"scriptCommands": "echo a\nsleep 10\nhostname\nwhoami"
+		},
+		"parameters": [],
+		"taskType": "SCRIPT",
+		"id": -1,
+		"parentFlowId": "04bf45adfd0f4c6dbb81da0ebfc3bb80",
+		"selected": false
+	}, {
+		"name": "taskB",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"executionRetryEnabled": false,
+			"executionRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {},
+		"downstreamRelations": {
+			"-3": "OR"
+		},
+		"position": {
+			"x": 441.0288391113281,
+			"y": 86.03529357910156
+		},
+		"executorGroupId": -1,
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"scriptCommands": "echo b\nsleep 5\nhostname\nwhoami\nls /ccc"
+		},
+		"parameters": [],
+		"taskType": "SCRIPT",
+		"id": -2,
+		"parentFlowId": "04bf45adfd0f4c6dbb81da0ebfc3bb80",
+		"selected": false
+	}, {
+		"name": "taskC",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"executionRetryEnabled": false,
+			"executionRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {
+			"-1": "OR",
+			"-2": "OR"
+		},
+		"downstreamRelations": {
+			"-4": "OR",
+			"-5": "OR"
+		},
+		"position": {
+			"x": 319.0288391113281,
+			"y": 228.03529357910156
+		},
+		"executorGroupId": -1,
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"scriptCommands": "echo c\nsleep 300\nhostname\nwhoami"
+		},
+		"parameters": [],
+		"taskType": "SCRIPT",
+		"id": -3,
+		"parentFlowId": "04bf45adfd0f4c6dbb81da0ebfc3bb80",
+		"selected": false
+	}, {
+		"name": "taskD",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"executionRetryEnabled": false,
+			"executionRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {
+			"-3": "OR"
+		},
+		"downstreamRelations": {},
+		"position": {
+			"x": 200.02883911132812,
+			"y": 367.03529357910156
+		},
+		"executorGroupId": -1,
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"scriptCommands": "echo d\nsleep 10\nhostname\nwhoami"
+		},
+		"parameters": [],
+		"taskType": "SCRIPT",
+		"id": -4,
+		"parentFlowId": "04bf45adfd0f4c6dbb81da0ebfc3bb80",
+		"selected": false
+	}, {
+		"name": "taskE",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"executionRetryEnabled": false,
+			"executionRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {
+			"-3": "OR"
+		},
+		"downstreamRelations": {},
+		"position": {
+			"x": 493.0288391113281,
+			"y": 368.03529357910156
+		},
+		"executorGroupId": -1,
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"scriptCommands": "echo e\nsleep 10\nhostname\nwhoami"
+		},
+		"parameters": [],
+		"taskType": "SCRIPT",
+		"id": -5,
+		"parentFlowId": "04bf45adfd0f4c6dbb81da0ebfc3bb80",
+		"selected": false
+	}]
+}

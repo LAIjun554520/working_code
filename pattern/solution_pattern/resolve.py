@@ -23,13 +23,15 @@ class SolutionResolve(object):
         self.base_solution = json.loads(open(base_pattern_path, 'r').read())
 
     def get_jdbc_import_pattern(self, solution_id, solution_uuid, solution_cron, source_connection_uuid,
-                                target_connection_uuid, hdfs_connection_uuid, table_details, target_database):
-        new_sol_model = {"targetDb": target_database, "tableDetails": table_details}
+                                target_connection_uuid, hdfs_connection_uuid, table_details, target_database,
+                                source_catalogName, source_schemaName):
+        new_sol_model = {"targetDb": target_database, "tableDetails": table_details, "catalogName": source_catalogName,
+                         "schemaName": source_schemaName}
         result_sol_model = _combine_dic_data(new_sol_model, self.base_solution["solModel"])
         new_runtime = {"engineUuid": target_connection_uuid, "jdbcConnUuid": source_connection_uuid,
                        "hdfsConnUuid": hdfs_connection_uuid}
         result_runtime = _combine_dic_data(new_runtime, self.base_solution["runtime"])
-        new_global_configuration = {"cron": solution_cron}
+        new_global_configuration = {"cron": solution_cron, "cronType": "CRON_EXPRESSION"}
         new_solution_message = {"id": solution_id, "uniqueId": solution_uuid, "solModel": result_sol_model,
                                 "runtime": result_runtime, "name": solution_uuid, "description": solution_uuid,
                                 "globalConfiguration": new_global_configuration}

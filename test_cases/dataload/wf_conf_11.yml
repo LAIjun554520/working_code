@@ -1,0 +1,83 @@
+connection:
+  source_db:
+    type: MYSQL
+    name: mysql_wf_conf_11
+    driver_version: mysql-5.7
+    connection: "jdbc:mysql://172.26.0.14:3306"
+    username: root
+    password: password
+  target_db:
+    name: inceptor_wf_conf_11
+    type: INCEPTOR
+    driver_version: inceptor-0.12.0
+    connection: "jdbc:hive2://172.26.5.37:10000/default"
+  target_hdfs:
+    name: hdfs_wf_conf_11
+    type: HDFS
+    connection: "hdfs://node536:8020"
+    user_principal: hdfs/node536@TDH535
+    user_keytab: /home/transwarp/auto_test/studio_performance_test/test_cases/dataload/wf_conf_11_conf/keytab
+    hdfs_site: /home/transwarp/auto_test/studio_performance_test/test_cases/dataload/wf_conf_11_conf/hdfs-site.xml
+    core_site: /home/transwarp/auto_test/studio_performance_test/test_cases/dataload/wf_conf_11_conf/core-site.xml
+
+solution_name: wf_conf_11_load
+solution_num: 50   # 依据任务数量，平均分配数据表
+dir_name: wf_conf_11  # 任务所在文件夹
+target_database: wf_conf  # 目标库名
+
+solution_cron: "0 30 14 ? * * "
+
+data:
+  catalog_name: qatest
+  schema_name: null
+  table_name:
+    - MIX_BW_TABLE0
+    - MIX_BW_TABLE1
+    - MIX_BW_TABLE2
+    - MIX_BW_TABLE3
+    - MIX_BW_TABLE4
+    - MIX_BW_TABLE5
+    - MIX_BW_TABLE6
+    - MIX_BW_TABLE7
+    - MIX_BW_TABLE8
+    - MIX_BW_TABLE9
+    - MIX_BW_TABLE10
+    - MIX_BW_TABLE11
+    - MIX_BW_TABLE12
+    - MIX_BW_TABLE13
+    - MIX_BW_TABLE14
+    - MIX_BW_TABLE15
+    - MIX_BW_TABLE16
+    - MIX_BW_TABLE17
+    - MIX_BW_TABLE18
+    - MIX_BW_TABLE19
+    - MIX_BW_TABLE20
+    - MIX_BW_TABLE21
+    - MIX_BW_TABLE22
+    - MIX_BW_TABLE23
+    - MIX_BW_TABLE24
+    - MIX_BW_TABLE25
+    - MIX_BW_TABLE26
+    - MIX_BW_TABLE27
+    - MIX_BW_TABLE28
+    - MIX_BW_TABLE29
+    - MIX_BW_TABLE30
+    - MIX_BW_TABLE31
+    - MIX_BW_TABLE32
+    - MIX_BW_TABLE33
+    - MIX_BW_TABLE34
+    - MIX_BW_TABLE35
+    - MIX_BW_TABLE36
+    - MIX_BW_TABLE37
+    - MIX_BW_TABLE38
+    - MIX_BW_TABLE39
+    - MIX_BW_TABLE40
+    - MIX_BW_TABLE41
+    - MIX_BW_TABLE42
+    - MIX_BW_TABLE43
+    - MIX_BW_TABLE44
+    - MIX_BW_TABLE45
+    - MIX_BW_TABLE46
+    - MIX_BW_TABLE47
+    - MIX_BW_TABLE48
+    - MIX_BW_TABLE49

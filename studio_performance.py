@@ -43,10 +43,12 @@ def start_taskflow():
 
     if operation == "create":
         taskflow_list = generate.generate()
+        # taskflow_list = generate.generate_flow_dep_1_1()
         print("任务流已创建： ", taskflow_list)
 
     if operation == "online" and uuid_file_path is None:
         taskflow_list = generate.generate()
+        # taskflow_list = generate.generate_flow_dep_1_1()
         print("任务流已创建： ", taskflow_list)
         execute.online(taskflow_list)
 
