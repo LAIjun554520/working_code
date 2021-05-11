@@ -1,7 +1,6 @@
 import json
 import random
 import string
-
 import requests
 requests.packages.urllib3.disable_warnings()
 
@@ -234,10 +233,10 @@ if __name__ == '__main__':
     dimension_parent_uuid = '7807c276eb934be2ba65bc8e4d2dd265' # 维度标准目标目录uuid
     common_code_parent_uuid = '8dee2b5dc9ce472f9f5829941a7d6580' # 公共代码目标目录uuid
     dictionary_parent_uuid = 'd52ecdfe71e448eeb891d480e6e3b791' # 命名字典目标目录uuid
-    creat_base_standard_by_number(parent_uuid=base_parent_uuid, number=number)     # 批量创建基础标准
-    creat_index_standard_by_number(parent_uuid=index_parent_uuid, number=number)   # 批量创建指标标准
-    creat_dimension_standard_by_number(parent_uuid=dimension_parent_uuid, number=number)    # 批量创建维度标准
-    creat_common_code_by_number(parent_uuid=common_code_parent_uuid, number=number)    # 批量公共代码标准
+    # creat_base_standard_by_number(parent_uuid=base_parent_uuid, number=number)     # 批量创建基础标准
+    # creat_index_standard_by_number(parent_uuid=index_parent_uuid, number=number)   # 批量创建指标标准
+    # creat_dimension_standard_by_number(parent_uuid=dimension_parent_uuid, number=number)    # 批量创建维度标准
+    # creat_common_code_by_number(parent_uuid=common_code_parent_uuid, number=number)    # 批量公共代码标准
     creat_dictionary_standard_by_number(parent_uuid=dictionary_parent_uuid, number=number)    # 批量创建命名字典
 
 
