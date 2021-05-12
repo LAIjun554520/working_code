@@ -7,7 +7,7 @@ requests.packages.urllib3.disable_warnings()
 
 standard_endpoint = 'https://172.22.6.79:28381'        # catalog standard url
 navigator_endpoint = 'https://172.22.6.61:28183'       # foundation navigator url
-federation_token = 'VtB47TGiBQ5dmc8Q3mJP-TDH'              # Guardian Federation Server的自定义token
+federation_token = 'VtB47TGiBQ5dmc8Q3mJP-TDH'          # Guardian Federation Server的自定义token
 
 headers = {
     'authorization': 'bearer ' + federation_token,
