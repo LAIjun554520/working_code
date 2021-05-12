@@ -7,10 +7,10 @@ requests.packages.urllib3.disable_warnings()
 
 standard_endpoint = 'https://172.22.6.79:28381'        # catalog standard url
 navigator_endpoint = 'https://172.22.6.61:28183'       # foundation navigator url
-federation_token = 'bearer VtB47TGiBQ5dmc8Q3mJP-TDH'              # Guardian Federation Server的自定义token
+federation_token = 'VtB47TGiBQ5dmc8Q3mJP-TDH'              # Guardian Federation Server的自定义token
 
 headers = {
-    'authorization': federation_token,
+    'authorization': 'bearer ' + federation_token,
     'Content-Type': 'application/json;charset=UTF-8',
     'Accept': 'application/json, text/plain, */*'
 }
@@ -232,7 +232,7 @@ if __name__ == '__main__':
     index_parent_uuid = '35bc3ab73fce44399030bf545df05355' # 指标标准目标目录uuid
     dimension_parent_uuid = '7807c276eb934be2ba65bc8e4d2dd265' # 维度标准目标目录uuid
     common_code_parent_uuid = '8dee2b5dc9ce472f9f5829941a7d6580' # 公共代码目标目录uuid
-    dictionary_parent_uuid = 'd52ecdfe71e448eeb891d480e6e3b791' # 命名字典目标目录uuid
+    dictionary_parent_uuid = '4ee064bfe5684b06adaf120167121bdc' # 命名字典目标目录uuid
     # creat_base_standard_by_number(parent_uuid=base_parent_uuid, number=number)     # 批量创建基础标准
     # creat_index_standard_by_number(parent_uuid=index_parent_uuid, number=number)   # 批量创建指标标准
     # creat_dimension_standard_by_number(parent_uuid=dimension_parent_uuid, number=number)    # 批量创建维度标准
