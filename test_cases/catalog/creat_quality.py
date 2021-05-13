@@ -182,15 +182,16 @@ def creat_quality_rule_by_number(payload, number=1):
     :param number:
     :return:
     '''
-    payload['ruleName'] = "quality_rule_" + get_random_by_length(10)
+
     for i in range(number):
+        payload['ruleName'] = "quality_rule_" + get_random_by_length(10)
         response = qualityTestCase.creat_quality_rule(payload=payload)
         print(response.text)
         print("创建第{index}个,status_code: {status_code}".format(index=i,status_code=response.status_code))
 
 
 if __name__ == '__main__':
-    number = 1  # 预期创建标准数量
+    number = 3  # 预期创建标准数量
 
     #批量复制质量模板
     quality_template_parent_uuid = '8125e83729044632a0665206a4cab3a7' # 质量模板目标目录uuid
@@ -205,7 +206,7 @@ if __name__ == '__main__':
                "templateUuid": "40a3235314d3449490bb0fccadb5139e", "templateName": "非空检查", "templateDesc": "testssss",
                "templateContent": "SELECT COUNT(1) FROM ${table_a}", "datasourceUuid": "69e352a132984aa38e9e48eaa317f8e9",
                "datasourceName": "inceptor660"}
-    #creat_quality_rule_by_number(payload=payload, number=number)    # 批量创建命名字典
+    creat_quality_rule_by_number(payload=payload, number=number)    # 批量创建命名字典
 
     # 批量复制质量任务
     quality_task_parent_uuid = '32c23f3d3e2443af800738d51372cc67' # 质量任务目标目录uuid
