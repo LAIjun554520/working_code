@@ -65,6 +65,41 @@ class NavigatorApi():
         # print(response.status_code)
         return response
 
+    def get_file_list(self, payload):
+        '''
+        navigator 获取文件列表......
+        :param payload: {
+                            "category": "QUALITY_TASK",
+                            "page": 1,
+                            "size": 10,
+                            "searchText": null,
+                            "uuid": "f79c0b9a795b4ed78823fa2751205445",
+                            "sortRules": [],
+                            "filterRules": null,
+                            "timeRangeFilters": null
+                        }
+        :return: response
+        '''
+        api = '/studio/api/navigator/v1/common/data'
+        url = '{endpoint}{api}'.format(endpoint=self.navigator_endpoint, api=api)
+        response = requests.request("POST", url, headers=headers, data=json.dumps(payload), verify=False)
+        # print(response.text)
+        # print(response.status_code)
+        return response
+
+    def delete_file_list(self, payload):
+        '''
+        navigator 删除文件列表
+        :param payload: ["ac4038aa055c4485ba3622a84a968073", "1341c456d04548d2bf09810230ff2c38"]
+        :return: response
+        '''
+        api = '/studio/api/navigator/v1/common/delete'
+        url = '{endpoint}{api}'.format(endpoint=self.navigator_endpoint, api=api)
+        response = requests.request("POST", url, headers=headers, data=json.dumps(payload), verify=False)
+        # print(response.text)
+        # print(response.status_code)
+        return response
+
 
 class QualityApi():
     def __init__(self, navigator_endpoint, quality_endpoint):
@@ -74,6 +109,26 @@ class QualityApi():
         """
         self.quality_endpoint = quality_endpoint
         self.navigator_endpoint = navigator_endpoint
+
+    def get_quality_file_list(self, payload):
+        """
+        获取质量文件列表
+        :param payload: 字典类型,{
+                                    "category": "QUALITY_TASK",
+                                    "page": 1,
+                                    "size": 10,
+                                    "searchText": null,
+                                    "uuid": "f79c0b9a795b4ed78823fa2751205445",
+                                    "sortRules": [],
+                                    "filterRules": null,
+                                    "timeRangeFilters": null
+                                }
+        :return:
+        """
+        navigitorApi = NavigatorApi(self.navigator_endpoint)
+        response = navigitorApi.get_file_list(payload=payload)
+        # status_code = response.status_code
+        return response
 
     def paste_quality(self, payload):
         """
@@ -127,6 +182,8 @@ class QualityApi():
         # print(response.text)
         # print(response.status_code)
         return response
+
+
 class QualityTestCase():
     def __init__(self,navigator_endpoint, quality_endpoint):
         self.qualityApi = QualityApi(navigator_endpoint=navigator_endpoint, quality_endpoint=quality_endpoint)
@@ -145,7 +202,11 @@ class QualityTestCase():
         response = self.qualityApi.creat_quality_rule(payload=payload)
         return response
 
-
+    def get_quality_file_list(self,payload) -> dict:
+        # 获取质量文件列表
+        response = self.qualityApi.get_quality_file_list(payload=payload)
+        print(response.text)
+        return response
 
 qualityTestCase = QualityTestCase(navigator_endpoint=navigator_endpoint, quality_endpoint=quality_endpoint)
 
@@ -189,6 +250,33 @@ def creat_quality_rule_by_number(payload, number=1):
         print(response.text)
         print("创建第{index}个,status_code: {status_code}".format(index=i,status_code=response.status_code))
 
+def delete_quality_task_by_parent_uuid(parent_uuid, size=1000):
+    '''
+    批量删除质量任务文件
+    :param parent_uuid: 父目录uuid
+    :param size: 一次获取多个个文件信息
+    :return:
+    '''
+    payload = {
+        "category": "QUALITY_TASK",
+        "page": 1,
+        "size": size,
+        "searchText": None,
+        "uuid": parent_uuid,
+        "sortRules": [],
+        "filterRules": None,
+        "timeRangeFilters": None
+    }
+    navigatorApi = NavigatorApi(navigator_endpoint)
+    response = qualityTestCase.get_quality_file_list(payload=payload)
+    if(response.status_code == 200):
+        data_list = json.loads(response.text)["data"]
+        for i in range(len(data_list)):
+            response = navigatorApi.delete_file_list([data_list[i]["uuid"]])
+            print("删除第{index}个,status_code: {status_code}".format(index=i,status_code=response.status_code))
+    else:
+        print(response.status_code)
+
 
 if __name__ == '__main__':
     number = 3  # 预期创建标准数量
@@ -206,11 +294,14 @@ if __name__ == '__main__':
                "templateUuid": "40a3235314d3449490bb0fccadb5139e", "templateName": "非空检查", "templateDesc": "testssss",
                "templateContent": "SELECT COUNT(1) FROM ${table_a}", "datasourceUuid": "69e352a132984aa38e9e48eaa317f8e9",
                "datasourceName": "inceptor660"}
-    creat_quality_rule_by_number(payload=payload, number=number)    # 批量创建命名字典
+    #creat_quality_rule_by_number(payload=payload, number=number)    # 批量创建命名字典
 
     # 批量复制质量任务
     quality_task_parent_uuid = '32c23f3d3e2443af800738d51372cc67' # 质量任务目标目录uuid
     quality_task_file_uuid = 'b0942d50977a4d83a688134e3ce1aa9c' # 复制的质量任务文件uuid
     #paste_quality_file_by_number(parent_uuid=quality_task_parent_uuid, file_uuid=quality_task_file_uuid, number=number)    # 批量复制质量任务
+
+    parent_uuid = 'f79c0b9a795b4ed78823fa2751205445'
+    delete_quality_task_by_parent_uuid(parent_uuid=parent_uuid, size=1000)
 
 
