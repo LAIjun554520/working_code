@@ -101,7 +101,7 @@ class GenerateTaskflow(object):
                                                                              taskflow_tmp_num, dir_uuid)
                 taskflow_uuid_list = taskflow_uuid_list + taskflow_uuid_list_tmp
 
-        with open("taskflow_uuid", 'a') as uw:
+        with open("taskflow_uuid", 'w') as uw:
             uw.write(",".join(taskflow_uuid_list))
 
         return taskflow_uuid_list

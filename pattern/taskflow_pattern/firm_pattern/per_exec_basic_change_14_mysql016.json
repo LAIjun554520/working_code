@@ -1,0 +1,67 @@
+{
+	"flow": {
+		"id": "0b4cd214534f4ada9934546500700f95",
+		"name": "per_exec_basic_change_14_mysql16",
+		"description": "flow-created-from-dir",
+		"flowType": "INTERNAL",
+		"cronType": "CRON_EXPRESSION",
+		"configuration": {
+			"cronPattern": "0 0 0 ? * * *",
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnable": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionTimeoutAlarmEnable": false,
+			"executionTimeoutAlarm": 7200,
+			"dependLastPolicy": "NO"
+		},
+		"schedulePriority": "LOW_PRIORITY",
+		"deployState": "DEV",
+		"executorGroupId": -1,
+		"parameters": [],
+		"operator": null,
+		"createDateTime": 1620959926736
+	},
+	"preDependencies": [],
+	"tasks": [{
+		"id": "c11ef5a16ffd4b87b54ff54422d72903",
+		"name": "mysql_016",
+		"description": "",
+		"taskType": "SQL",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"jdbcSqlSentences": "select sleep(60);",
+			"jdbcSqlbookFileId": null,
+			"jdbcDataSourceId": "7b7a014aae2b476d8d71bb50b2cebf16",
+			"jdbcIntelligentSplit": false
+		},
+		"parentFlowId": "0b4cd214534f4ada9934546500700f95",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 139,
+			"y": 143
+		},
+		"parameters": [],
+		"preCondition": null,
+		"executionState": "UNEXECUTED",
+		"executionId": null,
+		"selected": false
+	}]
+}

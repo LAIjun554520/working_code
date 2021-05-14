@@ -1,0 +1,58 @@
+{
+	"flow": {
+		"id": "deb7cb895eb94dc39e0d356c09aa97b7",
+		"name": "per_exec_basic_change_14_mysql14",
+		"description": "flow-created-from-dir",
+		"flowType": "INTERNAL",
+		"cronType": "CRON_EXPRESSION",
+		"configuration": {
+			"cronPattern": "0 0 0 ? * * *",
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnable": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionTimeoutAlarmEnable": false,
+			"executionTimeoutAlarm": 7200,
+			"dependLastPolicy": "NO"
+		},
+		"schedulePriority": "LOW_PRIORITY",
+		"deployState": "DEV",
+		"executorGroupId": -1,
+		"parameters": [],
+		"operator": null,
+		"createDateTime": 1620959794375
+	},
+	"preDependencies": [],
+	"tasks": [{
+		"name": "mysql_014",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"executionRetryEnabled": false,
+			"executionRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"position": {
+			"x": 153.02883911132812,
+			"y": 161.03529357910156
+		},
+		"executorGroupId": -1,
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"jdbcDataSourceId": "940530a82b7d4be5958bb8b6a07fa74e",
+			"jdbcSqlSentences": "select sleep(60);"
+		},
+		"parameters": [],
+		"taskType": "SQL",
+		"id": -1,
+		"parentFlowId": "deb7cb895eb94dc39e0d356c09aa97b7",
+		"selected": false
+	}]
+}

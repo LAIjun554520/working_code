@@ -15,7 +15,8 @@ class ExecuteTaskflow(object):
         for item in taskflow_list:
             online_result = self.workflow.online_taskflow(item)
             if online_result == 1:
-                exit(-1)
+                pass
+                # exit(-1)
 
     def offline(self, taskflow_list):
         for item in taskflow_list:

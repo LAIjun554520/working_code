@@ -1,15 +1,15 @@
 # 需要创建的任务流的数量及分布（均分）
-taskflow_num: 3000
-dir_name: "per_exec_basic_change_4_6"
-dir_num: 1
+taskflow_num: 2000
+dir_name: "reproduce"
+dir_num: 5
 
 # 需要创建的任务流的基本信息及数量，暂无支持任务流之间的依赖关系，暂不支持任务之间定义依赖关系；目前仅支持脚本任务
 taskflow_message:
-  - num: 3000
-    name_pattern: "per_exec_basic"
+  - num: 2000
+    name_pattern: "reproduce"
     cron_conf:
       cron_type: "CRON_EXPRESSION"
-      cron_Pattern: "0 20 10 ? * * *"
+      cron_Pattern: "0 0 14 ? * * *"
       cron_Hour: 0
       cron_Minute: 0
     dependLastPolicy: "NO"
@@ -17,8 +17,8 @@ taskflow_message:
     executorGroupId: -1
     pattern_file: " "
     task_message:
-      - num: 1
+      - num: 10
         type: "SCRIPT"
         name_pattern: shell_task
         execSpec:
-          scriptCommands: "echo a\nsleep 60\nhostname"
+          scriptCommands: "echo a\nsleep 300\nhostname"
