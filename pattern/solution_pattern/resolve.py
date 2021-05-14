@@ -20,7 +20,7 @@ class SolutionResolve(object):
     """
     def __init__(self):
         base_pattern_path = os.path.join(os.path.dirname(os.path.realpath(__file__)), "base_jdbc_import.json")
-        self.base_solution = json.loads(open(base_pattern_path, 'r').read())
+        self.base_solution = json.loads(open(base_pattern_path, 'r', encoding='utf-8').read())
 
     def get_jdbc_import_pattern(self, solution_id, solution_uuid, solution_cron, source_connection_uuid,
                                 target_connection_uuid, hdfs_connection_uuid, table_details, target_database,
