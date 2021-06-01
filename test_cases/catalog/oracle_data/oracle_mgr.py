@@ -16,7 +16,7 @@ def get_random_by_length(length: int = 10) -> str:
     random_str = ''.join(random.choices(population=base_char_str, k=length))
     return random_str
 
-print(__file__)
+
 with open(file='procedure.sql', mode='r', encoding='utf-8') as f:
     procedure_sql = f.read()
 conn = ora.connect('qatest','QAtest12','172.26.0.102:1521/helowin')
