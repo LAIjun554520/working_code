@@ -10,11 +10,11 @@ connection:
     name: inceptor_sample
     type: INCEPTOR
     driver_version: inceptor-0.12.0
-    connection: "jdbc:hive2://172.26.2.6:10000/default"
+    connection: "jdbc:hive2://172.22.6.60:10000/default"
   target_hdfs:
     name: hdfs_sample
     type: HDFS
-    connection: "hdfs://node530:8020"
+    connection: "hdfs://172.22.6.60:8020"
     user_principal: admin
     user_keytab: /home/transwarp/auto_test/performance_test/tdt_performance_test/test_cases/dataload/sample_conf/admin.keytab
     hdfs_site: /home/transwarp/auto_test/performance_test/tdt_performance_test/test_cases/dataload/sample_conf/hdfs-site.xml
