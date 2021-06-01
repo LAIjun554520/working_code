@@ -5,7 +5,7 @@ import json
 from .utils import authorization_headers
 
 
-class ConnectorRequest(object):
+class DatasourceRequest(object):
     """
     数据源相关api
     """
@@ -17,8 +17,24 @@ class ConnectorRequest(object):
             self.connector_session.verify = False
 
     def get_driver_message(self, connection_type, connection_version):
-        api = self.connector_url + "/studio/api/connector/v1/driver"
+        #  http://172.22.6.62:28180/studio/api/catalog/api/v2/datasources
+        api = self.connector_url + "studio/api/catalog/api/v2/datasources"
         print("请求地址：", api)
+        payload = """{
+                        "name": "db2",
+                        "cron": "",
+                        "connectionUuid": "601d8d421d14466b809253657237119a",
+                        "authType": "PASSWORD",
+                        "connectionType": "DB2",
+                        "connectionArgs": {},
+                        "authInfos": {
+                            "PASSWORD": "password",
+                            "USERNAME": "db2inst1"
+                        },
+                        "schema": [
+                            "DB2INST1"
+                        ]
+                    }"""
         connection_message = {"connectionType": connection_type}
         response = self.connector_session.get(api, params=connection_message)
         if response.status_code == 200:
