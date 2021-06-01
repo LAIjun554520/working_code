@@ -1,11 +1,11 @@
 # 需要创建的任务流的数量及分布（均分）
-taskflow_num: 9
-dir_name: "sample_studio"
-dir_num: 5
+taskflow_num: 10
+dir_name: "sample_workflow"
+dir_num: 2
 
 # 需要创建的任务流的基本信息及数量，暂无支持任务流之间的依赖关系，暂不支持任务之间定义依赖关系；目前仅支持脚本任务。任务流name_pattern需要不同
 taskflow_message:
-  - num: 4
+  - num: 5
     name_pattern: "sample"
     cron_conf:
       cron_type: "CRON_EXPRESSION"
