@@ -6,10 +6,10 @@ federation_token = d8e7c87e-b454-490d-aade-498347006335
 access_token = i3L1byuRiO68p1SsaAAb-TDH
 
 [manager]
-host = 172.26.0.87
+host = 172.22.6.60
 username = admin
-password = admin123
-cluster_root_password = 'ttqa!@#$'
+password = admin
+cluster_root_password = 'transwarpnj'
 
 [navigator]
 protocol = https
@@ -23,10 +23,10 @@ port = 28184
 
 [tdt]
 protocol = http
-host = 172.26.0.88
+host = 172.22.6.62
 port = 28140
 
 [workflow]
 protocol = http
-host = 172.26.0.88
-port = 9104
+host = 172.22.6.62
+port = 9101
