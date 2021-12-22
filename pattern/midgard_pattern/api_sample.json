@@ -1,0 +1,30 @@
+{
+	"baseInfo": {
+		"name": "dc_test",
+		"description": null,
+		"timeout": 5
+	},
+	"developConfig": {
+		"dataSourceId": "f88e9578dc254948871fb193d6184d95",
+		"databaseName": "dc_test",
+		"executorType": "TABLE",
+		"page": false,
+		"pageParamConfig": [],
+		"tableName": "abc",
+		"upstreamId": "d79d9bd69b22497ead412125dfff6166"
+	},
+	"id": "d79d9bd69b22497ead412125dfff6166",
+	"requestParamConfig": [],
+	"responseParamConfig": [{
+		"code": "id",
+		"dataType": "INT",
+		"description": null,
+		"name": "id"
+	}, {
+		"code": "age",
+		"dataType": "INT",
+		"description": null,
+		"name": "age"
+	}],
+	"upstreamType": "Executor"
+}

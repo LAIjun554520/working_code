@@ -1,6 +1,6 @@
 # 需要创建的任务流的数量及分布（均分）
 taskflow_num: 3000
-dir_name: "per_exec_basic_change_1"
+dir_name: "per_exec_basic_change_1_nolimit"
 dir_num: 5
 
 # 需要创建的任务流的基本信息及数量，暂无支持任务流之间的依赖关系，暂不支持任务之间定义依赖关系；目前仅支持脚本任务
@@ -9,7 +9,7 @@ taskflow_message:
     name_pattern: "per_exec_basic"
     cron_conf:
       cron_type: "CRON_EXPRESSION"
-      cron_Pattern: "0 40 15 ? * * *"
+      cron_Pattern: "0 30 20 ? * * *"
       cron_Hour: 0
       cron_Minute: 0
     dependLastPolicy: "NO"

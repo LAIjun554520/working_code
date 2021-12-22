@@ -24,7 +24,7 @@ class FileResolve(object):
         :param task_type: 待创建的目录/文件夹对应的任务类型，如WORKFLOW或DATALOAD
         :return:
         """
-        new_message = {"name": name, "parentUUID": parent_uuid, "category": task_type, "type": task_type}
+        new_message = {"name": name, "parentUUID": parent_uuid, "category": task_type}
         if file_type == "dir":
             pattern = self.base_dir
         elif file_type == "file":

@@ -2,7 +2,7 @@
 tenant = TDH
 username = admin
 password = 123
-federation_token = d8e7c87e-b454-490d-aade-498347006335
+federation_token = pkscVckLoDtVN6z6LzUX-TDH
 access_token = i3L1byuRiO68p1SsaAAb-TDH
 
 [manager]
@@ -13,12 +13,12 @@ cluster_root_password = 'ttqa!@#$'
 
 [navigator]
 protocol = https
-host = 172.26.0.89
+host = 172.26.0.87
 port = 28183
 
 [connector]
 protocol = https
-host = 172.26.0.89
+host = 172.26.0.87
 port = 28184
 
 [tdt]

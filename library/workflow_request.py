@@ -9,9 +9,9 @@ class WorkflowRequest(object):
     """
     workflow api操作，包括更新任务流设计，发布、下线任务流
     """
-    def __init__(self, federation_token, protocol, host, port):
+    def __init__(self, token, protocol, host, port):  # workflow不再直接访问guardian，改用foundation-user-server
         self.workflow_session = requests.Session()
-        self.workflow_session.headers = authorization_headers(federation_token=federation_token)
+        self.workflow_session.headers = authorization_headers(federation_token=token)
         self.workflow_url = protocol + "://" + host + ":" + str(port)
         if protocol == 'https':
             self.workflow_session.verify = False
@@ -46,4 +46,5 @@ class WorkflowRequest(object):
             return 0
         else:
             print("任务流", taskflow_uuid, "下线失败")
+            print("失败信息:", response.text)
             return 1

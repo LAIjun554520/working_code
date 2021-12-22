@@ -1,0 +1,13 @@
+{
+	"protocolType": "http",
+	"apiId": "d79d9bd69b22497ead412125dfff6166",
+	"name": "route",
+	"restfulMethodType": "Get",
+	"host": "node215",
+	"path": "/dc_test/route",
+	"encryptType": "NONE",
+	"threshold": null,
+	"authType": "Simple",
+	"hasAssociation": false,
+	"routeIpNameListInfo": null
+}

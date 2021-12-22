@@ -1,0 +1,362 @@
+{
+	"flow": {
+		"id": "73ab47c5f7854e6c8408f48a941d1e32",
+		"name": "flowB",
+		"description": "flow-created-from-dir",
+		"flowType": "INTERNAL",
+		"cronType": "PASSIVE_LAUNCH",
+		"configuration": {
+			"cronPattern": "0 0 0 ? * * *",
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnable": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionTimeoutAlarmEnable": false,
+			"executionTimeoutAlarm": 7200,
+			"dependLastPolicy": "NO"
+		},
+		"schedulePriority": "LOW_PRIORITY",
+		"deployState": "DEV",
+		"executorGroupId": -1,
+		"parameters": [],
+		"operator": null,
+		"createDateTime": 1621678195686
+	},
+	"preDependencies": [{
+		"id": "ede6d3fd8e6246b68ecd1466120e1b83",
+		"name": "flowA",
+		"path": "/tmp"
+	}],
+	"tasks": [{
+		"id": -1,
+		"name": "taskA",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 36.028839111328125,
+			"y": 202.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}, {
+		"id": -2,
+		"name": "taskA_1",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 262.0288391113281,
+			"y": 201.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}, {
+		"id": -3,
+		"name": "taskA_2",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 489.0288391113281,
+			"y": 200.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}, {
+		"id": -4,
+		"name": "taskA_3",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 712.0288391113281,
+			"y": 199.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}, {
+		"id": -5,
+		"name": "taskA_8",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 713.0288391113281,
+			"y": 350.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}, {
+		"id": -6,
+		"name": "taskA_6",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 263.0288391113281,
+			"y": 352.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}, {
+		"id": -7,
+		"name": "taskA_4",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 934.0288391113281,
+			"y": 198.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}, {
+		"id": -8,
+		"name": "taskA_5",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 37.028839111328125,
+			"y": 353.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}, {
+		"id": -9,
+		"name": "taskA_9",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 935.0288391113281,
+			"y": 349.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}, {
+		"id": -10,
+		"name": "taskA_7",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo a\nsleep 120\nhostname\nwhoami"
+		},
+		"parentFlowId": "73ab47c5f7854e6c8408f48a941d1e32",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 490.0288391113281,
+			"y": 351.03529357910156
+		},
+		"parameters": [],
+		"preCondition": null,
+		"selected": false
+	}]
+}

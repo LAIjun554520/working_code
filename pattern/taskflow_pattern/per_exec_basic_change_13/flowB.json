@@ -1,0 +1,60 @@
+{
+	"flow": {
+		"id": "b58bc81d189e49b8b29524a6ae2f4caa",
+		"name": "flowB",
+		"description": "flow-created-from-dir",
+		"flowType": "INTERNAL",
+		"cronType": "CRON_EXPRESSION",
+		"configuration": {
+			"cronPattern": "0 30 20 ? * * *",
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnable": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionTimeoutAlarmEnable": false,
+			"executionTimeoutAlarm": 7200,
+			"dependLastPolicy": "DEPEND_LAST_EXECUTION_SUCCESS"
+		},
+		"schedulePriority": "LOW_PRIORITY",
+		"deployState": "DEV",
+		"executorGroupId": -1,
+		"parameters": [],
+		"operator": null,
+		"createDateTime": 1621331519636
+	},
+	"preDependencies": [],
+	"tasks": [{
+		"id": "67919619d5e545ffa311870294bd0f86",
+		"name": "taskB",
+		"description": "",
+		"taskType": "SCRIPT",
+		"configuration": {
+			"cronEnabled": false,
+			"cronType": "CRON_EXPRESSION",
+			"cronPattern": null,
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionRetryEnabled": false,
+			"executionMaxRetryCount": 0,
+			"executionRetryInterval": 15,
+			"executionRetryIntervalUnit": "MINUTES"
+		},
+		"execSpec": {
+			"scriptCommands": "echo b\nsleep 60\nhostname\nwhoami"
+		},
+		"parentFlowId": "b58bc81d189e49b8b29524a6ae2f4caa",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"executorGroupId": -1,
+		"position": {
+			"x": 146,
+			"y": 85
+		},
+		"parameters": [],
+		"preCondition": null
+	}]
+}
