@@ -1,0 +1,65 @@
+{
+	"flow": {
+		"id": "7e709c31ba0d441f96c77d987d4fec99",
+		"name": "flowC",
+		"description": "flow-created-from-dir",
+		"flowType": "INTERNAL",
+		"cronType": "PASSIVE_LAUNCH",
+		"configuration": {
+			"cronPattern": "0 0 0 ? * * *",
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnable": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionTimeoutAlarmEnable": false,
+			"executionTimeoutAlarm": 7200,
+			"dependLastPolicy": "DEPEND_LAST_EXECUTION_SUCCESS"
+		},
+		"schedulePriority": "LOW_PRIORITY",
+		"deployState": "DEV",
+		"executorGroupId": -1,
+		"parameters": [],
+		"operator": null,
+		"createDateTime": 1621331747119
+	},
+	"preDependencies": [{
+		"id": "80da2b71445249a486ba99959d1963d0",
+		"name": "flowA",
+		"path": "/tmp"
+	}, {
+		"id": "b58bc81d189e49b8b29524a6ae2f4caa",
+		"name": "flowB",
+		"path": "/tmp"
+	}],
+	"tasks": [{
+		"name": "taskC",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"executionRetryEnabled": false,
+			"executionRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {},
+		"downstreamRelations": {},
+		"position": {
+			"x": 356.0288391113281,
+			"y": 159.03529357910156
+		},
+		"executorGroupId": -1,
+		"execSpec": {
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"scriptCommands": "echo c\nsleep 60\nhostname\nwhoami"
+		},
+		"parameters": [],
+		"taskType": "SCRIPT",
+		"id": -1,
+		"parentFlowId": "7e709c31ba0d441f96c77d987d4fec99",
+		"selected": false
+	}]
+}

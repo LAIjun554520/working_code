@@ -11,7 +11,7 @@ class NavigatorRequest(object):
     """
     def __init__(self, federation_token, protocol, host, port):
         self.navigator_session = requests.Session()
-        self.navigator_session.headers = authorization_headers(federation_token=federation_token)
+        self.navigator_session.headers = authorization_headers(service_token=federation_token)
         self.navigator_url = protocol + "://" + host + ":" + str(port)
         if protocol == 'https':
             self.navigator_session.verify = False
@@ -31,6 +31,7 @@ class NavigatorRequest(object):
     def create_file(self, file_message):
         api = self.navigator_url + "/studio/api/navigator/v1/common/newFile"
         response = self.navigator_session.post(api, data=file_message)
+        print(response)
         if response.status_code == 200:
             new_dir_message = json.loads(response.text)
             new_dir_uuid = new_dir_message['uuid']

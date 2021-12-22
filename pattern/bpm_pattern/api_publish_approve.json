@@ -1,0 +1,6 @@
+{
+	"action": "APPROVE",
+	"processDefinitionKey": "MIDGARD_API_PUBLISH",
+	"processInstanceId": "42165d15-5eeb-11ec-b68e-ee221a92f979",
+	"jsonData": "{\"baseInfo\":{\"name\":\"dc_test\",\"timeout\":5},\"createTime\":1639711616000,\"createUser\":\"dc\",\"developConfig\":{\"dataSourceId\":\"f88e9578dc254948871fb193d6184d95\",\"dataSourceName\":\"mysql_542_dc\",\"dataSourceType\":\"MYSQL\",\"databaseName\":\"dc_test\",\"executorType\":\"TABLE\",\"page\":false,\"pageParamConfig\":[],\"sql\":\"SELECT\\n  id ,\\n  age \\n FROM dc_test.abc\\n\",\"tableName\":\"abc\",\"upstreamId\":\"d79d9bd69b22497ead412125dfff6166\"},\"id\":\"d79d9bd69b22497ead412125dfff6166\",\"requestParamConfig\":[],\"responseParamConfig\":[{\"code\":\"id\",\"dataType\":\"INT\",\"name\":\"id\"},{\"code\":\"age\",\"dataType\":\"INT\",\"name\":\"age\"}],\"updateTime\":1639712503000,\"updateUser\":\"dc\",\"upstreamType\":\"Executor\"}"
+}

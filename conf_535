@@ -13,20 +13,20 @@ cluster_root_password = 123456
 
 [navigator]
 protocol = https
-host = 172.26.5.36
+host = 172.26.5.37
 port = 28183
 
 [connector]
 protocol = https
-host = 172.26.5.36
+host = 172.26.5.37
 port = 28184
 
 [tdt]
 protocol = http
-host = 172.26.5.36
+host = 172.26.5.37
 port = 28140
 
 [workflow]
 protocol = http
-host = 172.26.5.37
+host = 172.26.5.35
 port = 9101

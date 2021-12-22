@@ -10,7 +10,7 @@ def user_agent(name="tdt_performance"):
     return '%s' % name
 
 
-def authorization_headers(federation_token, content_type="application/json;charset=UTF-8"):
+def authorization_headers(service_token, content_type="application/json;charset=UTF-8"):
     """
     :rtype: headers conf
     """
@@ -20,7 +20,7 @@ def authorization_headers(federation_token, content_type="application/json;chars
         'Accept': '*/*',
         'Connection': 'keep-alive',
         'Content-Type': content_type,
-        'Authorization': "Bearer %s" % federation_token
+        'Authorization': "Bearer %s" % service_token
     }
 
 
