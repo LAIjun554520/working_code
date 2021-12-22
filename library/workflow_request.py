@@ -11,7 +11,7 @@ class WorkflowRequest(object):
     """
     def __init__(self, token, protocol, host, port):  # workflow不再直接访问guardian，改用foundation-user-server
         self.workflow_session = requests.Session()
-        self.workflow_session.headers = authorization_headers(federation_token=token)
+        self.workflow_session.headers = authorization_headers(service_token=token)
         self.workflow_url = protocol + "://" + host + ":" + str(port)
         if protocol == 'https':
             self.workflow_session.verify = False

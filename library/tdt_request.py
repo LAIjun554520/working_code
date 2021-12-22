@@ -14,7 +14,7 @@ class TDTRequest(object):
         federation_token = federation_token
         self.tdt_url = protocol + "://" + host + ":" + port
         self.tdt_session = requests.Session()
-        self.tdt_session.headers = authorization_headers(federation_token=federation_token)
+        self.tdt_session.headers = authorization_headers(service_token=federation_token)
         if protocol == "https":
             self.tdt_session.verify = False
 

@@ -11,7 +11,7 @@ class ConnectorRequest(object):
     """
     def __init__(self, federation_token, protocol, host, port):
         self.connector_session = requests.Session()
-        self.connector_session.headers = authorization_headers(federation_token=federation_token)
+        self.connector_session.headers = authorization_headers(service_token=federation_token)
         self.connector_url = protocol + "://" + host + ":" + str(port)
         if protocol == 'https':
             self.connector_session.verify = False
