@@ -43,21 +43,21 @@ class GenerateAPI(object):
                                "processInstanceId": item, "jsonData": json_data}
             self.bpm.approve_api_publish(item, json.dumps(approve_message))
         # API管理，添加路由
-        route_path = '/dc_test/' + api_name
+        route_path = '/demo_test/' + api_name
         new_route = self.midgard_resolve.replace_route_message(route_pattern_file, api_id, api_name, dynamic_host, route_path)
         self.midgard.add_route(new_route)
         # API管理，上线API
         self.midgard.online_api(api_id, self.midgard_resolve.replace_online_version_message('online_version.json'))
         # 申请使用
-        apply_message = {"apiId": api_id, "applyReason": "test", "title": "test"}
+        apply_message = {"apiId": api_id, "applyReason": "test", "approval": True, "title": "test", "workspaceId": "e107f98ad37048dfaedd8a2589ad5e31"}
         user_list = json.loads(open('user_list.json', encoding='utf-8').read())  # 需要申请API使用的用户
         print(user_list)
         for user in user_list:
             user_message = {"clientId": "gateway", "clientSecret": "secret", "userName": user['userName'],
                             "password": user['password']}
             print(json.dumps(user_message))
-            request_headers = {"accept": "application/json", "Content-Type": "application/json"}
-            token_response = requests.post("https://172.26.2.15:28190/studio/api/auth/v1/token/getTestToken",
+            request_headers = {"accept": "application/json", "Content-Type": "application/json", "Connection": "close"}
+            token_response = requests.post("https://172.26.0.88:28190/studio/api/auth/v1/token/getTestToken",
                                            data=json.dumps(user_message), verify=False, headers=request_headers)
             user_token = token_response.text
             token_response.close()
@@ -69,7 +69,7 @@ class GenerateAPI(object):
         bpm_list_api_apply = self.bpm.get_pending_task('MIDGARD_API_APPLY')
         for item in bpm_list_api_apply:
             apply_basic_content = json.loads(self.bpm.get_api_apply_content(item))
-            route_request_size = {"page": 1, "size": 10, "searchText": ""}
+            route_request_size = {"page": 1, "size": 100, "searchText": ""}
             api_route = self.midgard.get_api_route(api_id, json.dumps(route_request_size))[0]['id']  # 暂定使用第一个路由
             apply_basic_content['routeId'] = api_route
             approve_message = {"action": "APPROVE", "processDefinitionKey": "MIDGARD_API_APPLY",
@@ -81,7 +81,7 @@ class GenerateAPI(object):
         dir_list = []
         for i in range(dir_num):
             new_dir = dir_name + str(i)
-            dir_pattern = self.file_resolve.get_pattern(new_dir, "-", "dir", "SERVICE")
+            dir_pattern = self.file_resolve.get_pattern(new_dir, "84E29BCA31E6693F707144C31486CC7D", "dir", "SERVICE")
             dir_uuid = self.navigator.create_dir(dir_pattern)
             dir_list.append(dir_uuid)
         return dir_list
@@ -94,12 +94,12 @@ class GenerateAPI(object):
 
 
 if __name__ == '__main__':
-    generate_api = GenerateAPI('09c7ec54-6aae-4875-88ca-47ef826beaf4', 'https', '172.26.2.15', '28183', 'https',
-                               '172.26.2.13', '28141', 'https', '172.26.2.13', '28188')
-    base_name = 'auto_test'
-    num = 100
-    dir_uuid = generate_api.generate_dir(1, 'test')[0]
+    generate_api = GenerateAPI('d6148ad6-aac3-4b19-ad24-65654bf3439b', 'https', '172.26.0.88', '28183', 'https',
+                               '172.26.0.89', '28141', 'https', '172.26.0.88', '28188')
+    base_name = 'API_C'
+    num = 1
+    dir_uuid = generate_api.generate_dir(1, 'API_C')[0]
     for i in range(1):
         api_name = base_name + str(i)
-        generate_api.generate_api(dir_uuid, api_name, 'api_sample.json', 'f88e9578dc254948871fb193d6184d95',
-                                  'route.json', 'node215')
+        generate_api.generate_api(dir_uuid, api_name, 'api_sample_sql.json', '4f7d59853bce4dd3a51dc82fce579dd4',
+                                  'route.json', 'node089')

@@ -1,0 +1,76 @@
+{
+	"baseInfo": {
+		"name": "test_one",
+		"description": null,
+		"timeout": 5
+	},
+	"developConfig": {
+		"dataSourceId": "4f7d59853bce4dd3a51dc82fce579dd4",
+		"databaseInfo": [{
+			"code": "bc_test",
+			"tableInfo": []
+		}, {
+			"code": "demo",
+			"tableInfo": []
+		}],
+		"executorType": "SQL",
+		"maxRows": null,
+		"sql": "select * from demo.check_xs_zl0 limit 100",
+		"maxRowsRequired": false,
+		"sqlType": "SELECT"
+	},
+	"id": "458ddbfd800e49ef86a8ad44c041e479",
+	"requestParamConfig": [],
+	"responseParamConfig": [{
+		"code": "id",
+		"dataType": null,
+		"description": null,
+		"name": "id"
+	}, {
+		"code": "age",
+		"dataType": null,
+		"description": null,
+		"name": "age"
+	}, {
+		"code": "person_name",
+		"dataType": null,
+		"description": null,
+		"name": "person_name"
+	}, {
+		"code": "gender",
+		"dataType": null,
+		"description": null,
+		"name": "gender"
+	}, {
+		"code": "height",
+		"dataType": null,
+		"description": null,
+		"name": "height"
+	}, {
+		"code": "country",
+		"dataType": null,
+		"description": null,
+		"name": "country"
+	}, {
+		"code": "email",
+		"dataType": null,
+		"description": null,
+		"name": "email"
+	}, {
+		"code": "website",
+		"dataType": null,
+		"description": null,
+		"name": "website"
+	}, {
+		"code": "create_time",
+		"dataType": null,
+		"description": null,
+		"name": "create_time"
+	}, {
+		"code": "update_time",
+		"dataType": null,
+		"description": null,
+		"name": "update_time"
+	}],
+	"upstreamType": "Executor"
+}

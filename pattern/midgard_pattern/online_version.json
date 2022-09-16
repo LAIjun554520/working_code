@@ -1,7 +1,7 @@
 {
-	"onlineMode": "Latest",
+	"onlineMode": "Release",
 	"versionWeightDTOS": [{
-		"version": 0,
+		"version": 1,
 		"weight": 100
 	}]
 }

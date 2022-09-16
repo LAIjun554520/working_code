@@ -18,6 +18,19 @@ class MidgardRequest(object):
         pass
 
     def update_api(self, api_message):
+        # SQL模式
+        api = self.midgard_url + "/studio/api/midgard/v1/apiConf/update"
+        response = self.midgard_session.put(api, data=api_message)
+        if response.status_code == 200:
+            print("成功更新API，文件：", json.loads(api_message)["baseInfo"]["name"])
+            return 0
+        else:
+            print("更新API失败，文件：", json.loads(api_message)["baseInfo"]["name"])
+            print(response.text)
+            return 1
+
+    def update_api_table(self, api_message):
+        # 向导模式
         api = self.midgard_url + "/studio/api/midgard/v1/apiConf/table/update"
         response = self.midgard_session.put(api, data=api_message)
         if response.status_code == 200:
@@ -29,6 +42,7 @@ class MidgardRequest(object):
             return 1
 
     def publish_api(self, api_uuid, pulish_message):
+        # 更新SQL模式的API
         api = self.midgard_url + "/studio/api/midgard/v1/apiConf/version/publish/%s" % api_uuid
         response = self.midgard_session.post(api, pulish_message)
         if response.status_code == 200:

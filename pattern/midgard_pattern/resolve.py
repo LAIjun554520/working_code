@@ -23,9 +23,9 @@ class MidgardResolve(object):
         root_path = os.path.dirname(os.path.dirname(os.path.dirname(os.path.realpath(__file__))))
         self.midgard_pattern_root = os.path.join(root_path, 'pattern', 'midgard_pattern')
 
-    def replace_api_message(self, pattern_file, target_name, target_id, datasource_id):
+    def replace_api_message_table(self, pattern_file, target_name, target_id, datasource_id):
         """
-        替换API模板中的id、name、数据源id信息
+        替换向导模式API模板中的id、name、数据源id信息
         :param pattern_file: 使用的模板文件名称
         :param target_name: 新建的API的名称
         :param target_id: 新建的API文件的uuid
@@ -36,6 +36,24 @@ class MidgardResolve(object):
         api_pattern = json.loads(open(pattern_path, encoding='utf-8').read())
         new_base_info = _combine_dic_data({"name": target_name}, api_pattern['baseInfo'])
         new_develop_config = _combine_dic_data({"dataSourceId": datasource_id, "upstreamId": target_id},
+                                               api_pattern['developConfig'])
+        new_content = {"baseInfo": new_base_info, "developConfig": new_develop_config, "id": target_id}
+        target_api = _combine_dic_data(new_content, api_pattern)
+        return json.dumps(target_api)
+
+    def replace_api_message(self, pattern_file, target_name, target_id, datasource_id):
+        """
+        替换SQL模式API模板中的id、name、数据源id信息
+        :param pattern_file: 使用的模板文件名称
+        :param target_name: 新建的API的名称
+        :param target_id: 新建的API文件的uuid
+        :param datasource_id: 使用的数据源的uuid
+        :return: 新建的API的配置
+        """
+        pattern_path = os.path.join(self.midgard_pattern_root, pattern_file)
+        api_pattern = json.loads(open(pattern_path, encoding='utf-8').read())
+        new_base_info = _combine_dic_data({"name": target_name}, api_pattern['baseInfo'])
+        new_develop_config = _combine_dic_data({"dataSourceId": datasource_id},
                                                api_pattern['developConfig'])
         new_content = {"baseInfo": new_base_info, "developConfig": new_develop_config, "id": target_id}
         target_api = _combine_dic_data(new_content, api_pattern)

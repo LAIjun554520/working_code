@@ -1,0 +1,70 @@
+{
+	"flow": {
+		"id": "c9387e3f1de44e9ba8a831f109807b05",
+		"name": "flowA",
+		"description": "flow-created-from-dir",
+		"flowType": "INTERNAL",
+		"cronType": "CRON_EXPRESSION",
+		"configuration": {
+			"cronPattern": "0 0 0 ? * * *",
+			"cronHour": 0,
+			"cronMinute": 0,
+			"executionTimeoutCancelEnable": false,
+			"executionTimeoutCancel": 0,
+			"executionTimeoutCancelUnit": "MINUTES",
+			"executionTimeoutAlarmEnable": false,
+			"executionTimeoutAlarm": 7200,
+			"dependLastPolicy": "NO",
+			"globalParameters": [],
+			"workspaceParameters": []
+		},
+		"schedulePriority": "LOW_PRIORITY",
+		"scheduleCalendarId": "NO_CALENDAR",
+		"deployState": "DEV",
+		"executorGroupId": -1,
+		"parameters": [],
+		"operator": null,
+		"createDateTime": 1661665147671,
+		"businessId": null,
+		"businessType": null
+	},
+	"preDependencies": [],
+	"tasks": [{
+		"name": "new task",
+		"description": "",
+		"configuration": {
+			"cronEnabled": false,
+			"cronPattern": "0 0 0 ? * * *",
+			"executionRetryEnabled": false,
+			"executionRetryIntervalUnit": "MINUTES",
+			"executionTimeoutCancelEnabled": false,
+			"executionTimeoutCancelUnit": "MINUTES"
+		},
+		"cronType": "ONCE_PER_DAY",
+		"upstreamRelations": {},
+		"upstreamRelationList": [],
+		"downstreamRelations": {},
+		"position": {
+			"x": 173,
+			"y": 188
+		},
+		"executorGroupId": -1,
+		"execSpec": {
+			"scriptMode": "SCRIPT_SENTENCE",
+			"jdbcSqlType": "CUSTOM",
+			"delayTimeUnit": "MINUTES",
+			"delayTimeValue": 5,
+			"rMode": "R_SENTENCE",
+			"pythonMode": "PYTHON_SENTENCE",
+			"refNestFlowId": "b1ea4fd9d5a74895b4aba7269b12d8ee"
+		},
+		"parameters": [],
+		"tdtParameters": [],
+		"taskType": "NESTFLOW",
+		"id": -1,
+		"parentFlowId": "c9387e3f1de44e9ba8a831f109807b05",
+		"execEnvironmentId": "",
+		"selected": true
+	}],
+	"scheduleCalendarEnabled": false
+}

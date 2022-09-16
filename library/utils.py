@@ -20,6 +20,7 @@ def authorization_headers(service_token, content_type="application/json;charset=
         'Accept': '*/*',
         'Connection': 'keep-alive',
         'Content-Type': content_type,
+        "Connection": "close",
         'Authorization': "Bearer %s" % service_token
     }
 

@@ -4,8 +4,6 @@ import json
 import datetime
 
 
-# user_web_ip = '172.26.0.88:28191'
-# authorization = 'bearer 3532d9e4-3df2-4441-bd3c-6660dc17d326'
 
 class HttpsClient(object):
 
@@ -31,15 +29,15 @@ class HttpsClient(object):
 
 
 if __name__ == '__main__':
-    for i in range(1):
-        username = str('ssa') + str(i)
+    for i in range(20):
+        username = str('user') + str(i)
         email = 'qa' + str(datetime.datetime.now().strftime("%Y%m%d%H%M%S%f")) + '@qq.com'
         url = 'https://172.26.0.88:28191/studio/api/auth/v1/user/add'
         json_dict = {"username": username, "realName": username, "password": "123", "telephone": "13312341234",
-                     "email": email, "roleIds": ["2"], "organCode": "rootOrgan"}
+                     "email": email, "roleIds": []}
         str_json_dict = json.dumps(json_dict)
         headers = {'Content-Type': 'application/json', 'Accept': 'application/json',
-                   'authorization': 'bearer e8968b06-c4d2-40c9-8582-d45b30c9fe49'}
+                   'authorization': 'bearer d6148ad6-aac3-4b19-ad24-65654bf3439b'}
         result = HttpsClient.https_post(url, str_json_dict, headers)
         print(result)
         re_json = json.loads(result)
